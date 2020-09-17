@@ -1,0 +1,1 @@
+bot: python amana_osaki_bot.py
