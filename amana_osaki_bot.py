@@ -4,7 +4,8 @@ import pandas as pd
 
 def get_tenka():
     df = pd.read_csv('tenka.csv', header = None)
-    return df[0].sample().values[0]
+    title = pd.DataFrame({'ちゃん！？','ちゃーん☆','ちゃん！'})[0].sample().values[0]
+    return f'{str(df[0].sample().values[0])}{title}'
 
 def execute():
     CONSUMER_KEY = os.environ["consumer_key"]
