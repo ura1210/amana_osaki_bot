@@ -4,7 +4,7 @@ import pandas as pd
 
 def get_tenka():
     df = pd.read_csv('tenka.csv', header = None)
-    return df.sample()
+    return df[0].sample().values[0]
 
 def execute():
     CONSUMER_KEY = os.environ["consumer_key"]
