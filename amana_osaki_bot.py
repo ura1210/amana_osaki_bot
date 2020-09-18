@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 def get_tenka():
-        df = pd.read_csv('tenka.csv', header = None)
+    df = pd.read_csv('tenka.csv', header = None)
     return df.sample()
 
 def execute():
