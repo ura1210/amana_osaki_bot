@@ -1,8 +1,10 @@
 import twitter
 import os
+import pandas as pd
 
 def get_tenka():
-    return "tenka"
+        df = pd.read_csv('tenka.csv', header = None)
+    return df.sample()
 
 def execute():
     CONSUMER_KEY = os.environ["consumer_key"]
@@ -15,7 +17,7 @@ def execute():
                     consumer_secret=CONSUMER_SECRET, 
                     access_token_key=ACCESS_TOKEN_KEY,
                     access_token_secret=ACCESS_TOKEN_SECRET)
-    api.PostUpdates(tenka)
+    api.PostUpdates(get_tenka())
 
 def main():
     execute()
