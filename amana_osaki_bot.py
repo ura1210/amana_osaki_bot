@@ -1,4 +1,4 @@
-import twitter
+import tweepy
 import os
 import pandas as pd
 
@@ -14,11 +14,10 @@ def execute():
     ACCESS_TOKEN_SECRET = os.environ["access_token_secret"]
 
     tenka = get_tenka()
-    api = twitter.Api(consumer_key=CONSUMER_KEY,
-                    consumer_secret=CONSUMER_SECRET, 
-                    access_token_key=ACCESS_TOKEN_KEY,
-                    access_token_secret=ACCESS_TOKEN_SECRET)
-    api.PostUpdates(get_tenka())
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
+    api = tweepy.API(auth)
+    api.update_status(tenka)
 
 def main():
     execute()
